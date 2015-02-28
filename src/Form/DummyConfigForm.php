@@ -51,6 +51,16 @@ class DummyConfigForm extends ConfigFormBase{
   /**
    * {@inheritdoc}
    */
+  public function validateForm(array &$form, FormStateInterface $form_state) {
+    $txt_1 = $form_state->getValue('text_1');
+    if ($form_state->isValueEmpty('text_1')) {
+      $form_state->setErrorByName('text_1', $this->t('Text 1 is required and can not be blank.'));
+    }
+  }
+
+  /**
+   * {@inheritdoc}
+   */
   public function submitForm(array &$form, FormStateInterface $form_state) {
 
     // save the textbox 2 configuration.
