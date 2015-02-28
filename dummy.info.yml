@@ -1,0 +1,5 @@
+name: D8 Dummy
+description: Dummy module for exporing drupal 8 features.
+type: module
+version: VERSION
+core: 8.x

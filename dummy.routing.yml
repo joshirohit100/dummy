@@ -1,0 +1,7 @@
+dummy.config:
+  path: '/admin/content/dummy-config'
+  defaults:
+    _title: 'My Dummy Settings'
+    _form: 'Drupal\dummy\Form\DummyConfigForm'
+  requirements:
+    _permission: 'access content'
