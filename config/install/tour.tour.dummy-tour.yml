@@ -17,6 +17,12 @@ tips:
     label: Custom tour 2
     body: <p>This is my second custom tour with default tip plugin.</p>
     weight: "2"
+  tour_3:
+    id: tour_3
+    plugin: custom_tip
+    my_name: slim shaddy
+    label: Custom tour 3
+    weight: "2"
     attributes:
       data-id: dummy-config-settings
 
