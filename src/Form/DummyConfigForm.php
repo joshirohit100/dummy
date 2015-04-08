@@ -9,6 +9,8 @@ namespace Drupal\dummy\Form;
 
 use Drupal\Core\Form\ConfigFormBase;
 use Drupal\Core\Form\FormStateInterface;
+use Symfony\Component\EventDispatcher\Event;
+use Drupal\dummy\Event\DummyEvents;
 
 class DummyConfigForm extends ConfigFormBase{
 
@@ -68,6 +70,10 @@ class DummyConfigForm extends ConfigFormBase{
     ->set('text_1', $form_state->getValue('text_1'))
     ->set('text_2', $form_state->getValue('text_2'))
     ->save();
+
+    $dispatcher = \Drupal::service('event_dispatcher');
+    $e = new Event();
+    $event = $dispatcher->dispatch(DummyEvents::DUMMY_CONFIG_SAVED, $e);
 
     // clear the textbox 1 configuration.
     // clear() unsets the key from config object.
