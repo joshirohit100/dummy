@@ -1,0 +1,5 @@
+services:
+  dummy.config_form_subscribe:
+    class: Drupal\dummy\EventSubscriber\DummyConfigEventSubscriber
+    tags:
+      - { name: event_subscriber }
