@@ -81,18 +81,14 @@ class DummyConfigForm extends ConfigFormBase{
     ->set('text_2', $form_state->getValue('text_2'))
     ->save();
 
+    // Event system.
     $dispatcher = \Drupal::service('event_dispatcher');
     $e = new Event();
     $event = $dispatcher->dispatch(DummyEvents::DUMMY_CONFIG_SAVED, $e);
 
-    // clear the textbox 1 configuration.
-    // clear() unsets the key from config object.
-//    $config = $this->config('dummy.config')
-//    ->clear('text_1')
-//    ->save();
- 
-    // delete() delete / removes the config object.
-//    $this->config('dummy.config')->delete();
+    // Hook system.
+    //\Drupal::moduleHandler()->invokeAll('my_test');
+
     drupal_set_message($this->t('The configuration options have been saved.'));
   }
 }

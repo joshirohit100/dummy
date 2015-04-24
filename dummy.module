@@ -1,0 +1,13 @@
+<?php
+
+/**
+ * @file
+ * Module file contains hooks.
+ */
+
+/**
+ * Implements hook_my_test().
+ */
+function dummy_my_test() {
+  drupal_set_message(t('This message from hook system.'));
+}
