@@ -5,3 +5,11 @@ dummy.config:
     _form: 'Drupal\dummy\Form\DummyConfigForm'
   requirements:
     _permission: 'access content'
+
+dummy.my_controller:
+  path: '/my-dummy-path'
+  defaults:
+    _title: 'My Dummy Controller'
+    _controller: 'Drupal\dummy\Controller\MyDummyController::my_controller'
+  requirements:
+    _permission: 'access content'
