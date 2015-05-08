@@ -4,12 +4,21 @@ dummy.config:
     _title: 'My Dummy Settings'
     _form: 'Drupal\dummy\Form\DummyConfigForm'
   requirements:
-    _permission: 'access content'
+    _permission: 'my dummy permission'
 
 dummy.my_controller:
   path: '/my-dummy-path'
   defaults:
     _title: 'My Dummy Controller'
     _controller: 'Drupal\dummy\Controller\MyDummyController::my_controller'
+    _title_callback: 'Drupal\dummy\Controller\MyDummyController::my_title_callback'
   requirements:
-    _permission: 'access content'
+    _permission: 'my dummy permission'
+
+dummy.my_controller2:
+  path: '/my-dummy-path/subpath'
+  defaults:
+    _title: 'My Dummy Controller 2'
+    _controller: 'Drupal\dummy\Controller\MyDummyController::my_controller2'
+  requirements:
+    _permission: 'my dummy permission'

@@ -1,0 +1,5 @@
+dummy.my_controller:
+  title: My Dummy Contollers Here
+  description: 'This is my dummy controller menu description.'
+  parent: system.admin_structure
+  route_name: dummy.my_controller
