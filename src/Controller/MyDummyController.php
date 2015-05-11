@@ -7,6 +7,7 @@
 namespace Drupal\dummy\Controller;
 
 use Drupal\Core\Controller\ControllerBase;
+use Drupal\node\NodeInterface;
 
 class MyDummyController extends ControllerBase {
   public function my_controller() {
@@ -21,6 +22,22 @@ class MyDummyController extends ControllerBase {
     $build = array(
       '#type' => 'markup',
       '#markup' => $this->t('Hello Friends! This is second controller!'),
+    );
+    return $build;
+  }
+
+  public function my_controller3($my_id) {
+    $build = array(
+      '#type' => 'markup',
+      '#markup' => $this->t('Hello Friends! My ID is @my_id!', array('@my_id' => $my_id)),
+    );
+    return $build;
+  }
+
+  public function my_controller4(NodeInterface $node) {
+    $build = array(
+      '#type' => 'markup',
+      '#markup' => $this->t('Node id @node_id title is @title' , array('@node_id' => $node->id(), '@title' => $node->getTitle())),
     );
     return $build;
   }

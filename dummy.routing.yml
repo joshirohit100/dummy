@@ -22,3 +22,19 @@ dummy.my_controller2:
     _controller: 'Drupal\dummy\Controller\MyDummyController::my_controller2'
   requirements:
     _permission: 'my dummy permission'
+
+dummy.my_controller3:
+  path: '/my-dummy-path/{my_id}'
+  defaults:
+    _title: 'My Dummy Controller 3'
+    _controller: 'Drupal\dummy\Controller\MyDummyController::my_controller3'
+  requirements:
+    _permission: 'my dummy permission'
+
+dummy.my_controller4:
+  path: '/my-dummy-path/subpath/{node}'
+  defaults:
+    _title: 'My Dummy Controller 4'
+    _controller: 'Drupal\dummy\Controller\MyDummyController::my_controller4'
+  requirements:
+    _permission: 'my dummy permission'
