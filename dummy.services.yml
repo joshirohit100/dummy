@@ -3,3 +3,7 @@ services:
     class: Drupal\dummy\EventSubscriber\DummyConfigEventSubscriber
     tags:
       - { name: event_subscriber }
+  dummy.param_converter:
+    class: Drupal\dummy\DummyMyParamConverter
+    tags:
+      - { name: paramconverter }

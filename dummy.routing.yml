@@ -38,3 +38,15 @@ dummy.my_controller4:
     _controller: 'Drupal\dummy\Controller\MyDummyController::my_controller4'
   requirements:
     _permission: 'my dummy permission'
+
+dummy.my_controller5:
+  path: '/my-dummy-path/subpath/subpath/{dummy}'
+  defaults:
+    _title: 'My Dummy Controller 5'
+    _controller: 'Drupal\dummy\Controller\MyDummyController::my_controller5'
+  requirements:
+    _permission: 'my dummy permission'
+  options:
+      parameters:
+          dummy:
+              type: 'my-param-converter'

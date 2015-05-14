@@ -42,6 +42,14 @@ class MyDummyController extends ControllerBase {
     return $build;
   }
 
+  public function my_controller5($dummy) {
+    $build = array(
+      '#type' => 'markup',
+      '#markup' => $dummy,
+    );
+    return $build;
+  }
+
   function my_title_callback() {
     return $this->t('This is my dynamic title callback');
   }
