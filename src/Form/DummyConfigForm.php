@@ -14,6 +14,7 @@ use Drupal\dummy\Event\DummyEvents;
 use Drupal\Core\Ajax\AjaxResponse;
 use Drupal\Core\Ajax\HtmlCommand;
 use Drupal\Core\Ajax\CssCommand;
+use Drupal\Core\Ajax\OpenDialogCommand;
 
 class DummyConfigForm extends ConfigFormBase{
 
@@ -100,8 +101,9 @@ class DummyConfigForm extends ConfigFormBase{
   public function myDummyAjaxCallback(array $form, FormStateInterface $form_state) {
     if (!$this->_dummyCheckForError()) {
       $ajax_response = new AjaxResponse();
-      $ajax_response->addCommand(new CssCommand('#my-idd', ['border' => '1px solid red']));
-      $ajax_response->addCommand(new HtmlCommand('#my-idd', 'There is error here.'));
+      //$ajax_response->addCommand(new CssCommand('#my-idd', ['border' => '1px solid red']));
+      $ajax_response->addCommand(new OpenDialogCommand('#my-idd', 'My Title', 'My Content'));
+      //$ajax_response->addCommand(new HtmlCommand('#my-idd', 'There is error here.'));
       return $ajax_response;
     }
   }
