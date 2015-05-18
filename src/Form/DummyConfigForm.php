@@ -11,6 +11,9 @@ use Drupal\Core\Form\ConfigFormBase;
 use Drupal\Core\Form\FormStateInterface;
 use Symfony\Component\EventDispatcher\Event;
 use Drupal\dummy\Event\DummyEvents;
+use Drupal\Core\Ajax\AjaxResponse;
+use Drupal\Core\Ajax\HtmlCommand;
+use Drupal\Core\Ajax\CssCommand;
 
 class DummyConfigForm extends ConfigFormBase{
 
@@ -44,9 +47,8 @@ class DummyConfigForm extends ConfigFormBase{
       '#default_value' => $config->get('text_2'),
       '#suffix' => '<div id="my-idd"></div>',
       '#ajax' => [
-        'callback' => 'Drupal\dummy\MyAjax::ajaxSample',
+        'callback' => [$this, 'myDummyAjaxCallback'],
         'event' => 'keyup',
-        'wrapper' => 'my-idd',
         'progress' => [
           'type' => 'throbber',
           'message' => NULL,
@@ -90,5 +92,21 @@ class DummyConfigForm extends ConfigFormBase{
     //\Drupal::moduleHandler()->invokeAll('my_test');
 
     drupal_set_message($this->t('The configuration options have been saved.'));
+  }
+
+  /**
+   * Ajax callback for this dummy config form field.
+   */
+  public function myDummyAjaxCallback(array $form, FormStateInterface $form_state) {
+    if (!$this->_dummyCheckForError()) {
+      $ajax_response = new AjaxResponse();
+      $ajax_response->addCommand(new CssCommand('#my-idd', ['border' => '1px solid red']));
+      $ajax_response->addCommand(new HtmlCommand('#my-idd', 'There is error here.'));
+      return $ajax_response;
+    }
+  }
+
+  protected function _dummyCheckForError() {
+    return FALSE;
   }
 }
