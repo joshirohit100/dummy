@@ -46,14 +46,10 @@ class DummyConfigForm extends ConfigFormBase{
       '#type' => 'textfield',
       '#title' => $this->t('Text 2'),
       '#default_value' => $config->get('text_2'),
-      '#suffix' => '<div id="my-idd"></div>',
+      //'#suffix' => '<div id="my-idd"></div>',
       '#ajax' => [
         'callback' => [$this, 'myDummyAjaxCallback'],
         'event' => 'keyup',
-        'progress' => [
-          'type' => 'throbber',
-          'message' => NULL,
-        ],
       ],
     ];
     $form['save'] = [
