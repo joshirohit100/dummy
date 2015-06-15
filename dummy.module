@@ -5,9 +5,34 @@
  * Module file contains hooks.
  */
 
+use Drupal\core\Url;
+
 /**
  * Implements hook_my_test().
  */
 function dummy_my_test() {
   drupal_set_message(t('This message from hook system.'));
+}
+
+/**
+ * Implements hook_toolbar().
+ */
+function dummy_toolbar() {
+  $items = [];
+  $items['global_search'] = [
+    '#type' => 'toolbar_item',
+    'tab' => [
+      '#type' => 'link',
+      '#title' => t('My toolbar link'),
+      '#url' => Url::fromRoute('dummy.my_controller'),
+      '#options' => [
+        'attributes' => [
+          'title' => t('Home page'),
+          'class' => ['toolbar-icon', 'toolbar-icon-home'],
+        ],
+      ],
+    ],
+    '#weight' => 100,
+  ];
+  return $items;
 }
