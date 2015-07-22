@@ -50,3 +50,27 @@ dummy.my_controller5:
       parameters:
           dummy:
               type: 'my-param-converter'
+
+dummy.fruit_list:
+  path: '/admin/config/services/fruits'
+  defaults:
+    _title: 'Fruits list'
+    _entity_list: 'fruit'
+  requirements:
+    _permission: 'administer site configuration'
+
+dummy.fruit.add_form:
+  path: '/admin/config/services/fruits/add'
+  defaults:
+    _title: 'Add Fruit'
+    _entity_form: 'fruit.default'
+  requirements:
+    _permission: 'administer site configuration'
+
+entity.fruit.edit_form:
+  path: '/admin/config/services/fruits/manage/{fruit}'
+  defaults:
+    _title: 'Edit Fruit'
+    _entity_form: 'fruit.edit'
+  requirements:
+    _permission: 'administer site configuration'

@@ -1,0 +1,5 @@
+dummy.fruit.add_form:
+  route_name: dummy.fruit.add_form
+  title: 'Add Fruit'
+  appears_on:
+    - dummy.fruit_list

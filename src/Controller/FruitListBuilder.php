@@ -19,6 +19,8 @@ class FruitListBuilder extends ConfigEntityListBuilder {
    */
   public function buildHeader() {
     $header['label'] = $this->t('Label');
+    $header['name'] = $this->t('Name');
+    $header['price'] = $this->t('Price');
     return $header + parent::buildHeader();
   }
 
@@ -26,7 +28,9 @@ class FruitListBuilder extends ConfigEntityListBuilder {
    * {@inheritdoc}
    */
   public function buildRow(EntityInterface $entity) {
-    $row['name'] = $this->getLabel($entity);
+    $row['label'] = $this->getLabel($entity);
+    $row['name'] = $entity->getName();
+    $row['price'] = $entity->getPrice();
     return $row + parent::buildRow($entity);
   }
 

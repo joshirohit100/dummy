@@ -1,0 +1,19 @@
+dummy.fruit.*:
+      type: mapping
+      label: 'Fruit'
+      mapping:
+        uuid:
+          type: string
+          label: 'UUID'
+        id:
+          type: string
+          label: 'Fruit identifier'
+        label:
+          type: label
+          label: 'Fruit label'
+        name:
+          type: label
+          label: 'Fruit name'
+        price:
+          type: string
+          label: 'Fruit price'
