@@ -6,13 +6,20 @@
 
 namespace Drupal\dummy\Controller;
 
-use Drupal\Core\Config\Entity\ConfigEntityListBuilder;
+use Drupal\Core\Config\Entity\DraggableListBuilder;
 use Drupal\Core\Entity\EntityInterface;
 
 /**
  * Provides a entity list page for Fruits.
  */
-class FruitListBuilder extends ConfigEntityListBuilder {
+class FruitListBuilder extends DraggableListBuilder {
+
+  /**
+   * {@inheritdoc}
+   */
+  public function getFormId() {
+    return 'dummy_fruit_list';
+  }
 
   /**
    * {@inheritdoc}

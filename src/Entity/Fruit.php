@@ -25,13 +25,15 @@ use Drupal\Core\Config\Entity\ConfigEntityBase;
  *   },
  *   entity_keys = {
  *     "id" = "id",
- *     "label" = "label"
+ *     "label" = "label",
+ *     "weight" = "weight"
  *   },
  *   config_export = {
  *     "id",
  *     "label",
  *     "name",
  *     "price",
+ *     "weight",
  *   },
  *   links = {
  *     "default" = "/admin/config/services/fruits/add",
@@ -68,6 +70,13 @@ class Fruit extends ConfigEntityBase {
    * @var string
    */
   public $price;
+
+  /**
+   * The weight of the fruit.
+   *
+   * @var int
+   */
+  public  $weight;
 
   /**
    * {@inheritdoc}

@@ -17,3 +17,6 @@ dummy.fruit.*:
         price:
           type: string
           label: 'Fruit price'
+        weight:
+          type: integer
+          label: 'Fruit weight'
