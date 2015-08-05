@@ -11,12 +11,13 @@ dummy.fruit.*:
         label:
           type: label
           label: 'Fruit label'
+        weight:
+          type: integer
+          label: 'Fruit weight'
         name:
           type: label
           label: 'Fruit name'
         price:
           type: string
           label: 'Fruit price'
-        weight:
-          type: integer
-          label: 'Fruit weight'
+
