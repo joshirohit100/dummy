@@ -1,3 +1,11 @@
+dummy.dummy_form:
+  path: '/my-dummy-form'
+  defaults:
+    _title: 'My Dummy Form'
+    _form: 'Drupal\dummy\Form\MyDummyForm'
+  requirements:
+    _permission: 'my dummy permission'
+
 dummy.config:
   path: '/admin/content/dummy-config'
   defaults:
