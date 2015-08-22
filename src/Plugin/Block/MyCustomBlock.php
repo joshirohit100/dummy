@@ -24,8 +24,11 @@ class MyCustomBlock extends BlockBase {
    * {@inheritdoc}
    */
   public function build() {
+    $my_form = \Drupal::formBuilder()->getForm('Drupal\dummy\Form\MyDummyForm');
+    $render = \Drupal::service('renderer')->render($my_form);
     return array(
-      '#markup' => 'HHS JHJHJ',
+      //'#markup' => 'HHS JHJHJ ttt' . $render,
+      '#markup' => $render,
     );
   }
 }
