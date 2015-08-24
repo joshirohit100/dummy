@@ -26,6 +26,7 @@ class MyDummyForm extends FormBase{
     $form['text_1'] = [
       '#type' => 'textfield',
       '#title' => $this->t('Text 1'),
+      '#required' => TRUE,
     ];
     $form['text_2'] = [
       '#type' => 'textfield',
